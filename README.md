@@ -31,7 +31,13 @@ $ rustup component add clippy-preview --toolchain=nightly
 
 #### 连接方式
 
-电源线🔌与 5v连接，地线接电线，rx 与 tx 交错连接。连接参考：
+电源线🔌与 5v连接，GND 互相连接，TX (GPIO14)、RX (GPIO15)交错连接。有关树莓派的 GPIO 更多信息，请看[官方描述](https://www.raspberrypi.org/documentation/usage/gpio/).
+
+
+
+![GPIO](./img/gpio_info.png)
+
+连接参考：
 ![调试线连接](./img/)
 
 连接上你的电脑后（*nix系统，window的童鞋可以使用串口连接工具）,执行：
