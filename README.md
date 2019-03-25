@@ -50,7 +50,7 @@ $ rustup component add clippy-preview --toolchain=nightly
 
 电源线 🔌与 5v 连接，GND 互相连接，TX (GPIO14)、RX (GPIO15)交错连接。有关树莓派的 GPIO 更多信息，请看[官方描述](https://www.raspberrypi.org/documentation/usage/gpio/).
 
-
+![GPIO对照](./img/gpios.png)
 
 ![GPIO](./img/gpio_info.png)
 
