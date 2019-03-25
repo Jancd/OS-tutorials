@@ -6,7 +6,7 @@
 
 ## 准备与开发环境
 
-因为是在裸机上直接跑系统，会涉及到硬件，所以还需要读者对硬件有一点了解。
+因为是在裸机上直接跑系统，会涉及到硬件，所以还需要读者对硬件有一点了解，同时需要对 Rust 也有一点了解。
 
 ### 树莓派
 
@@ -50,19 +50,28 @@ $ rustup component add clippy-preview --toolchain=nightly
 
 电源线 🔌与 5v 连接，GND 互相连接，TX (GPIO14)、RX (GPIO15)交错连接。有关树莓派的 GPIO 更多信息，请看[官方描述](https://www.raspberrypi.org/documentation/usage/gpio/).
 
-
+![GPIO对照](./img/gpios.png)
 
 ![GPIO](./img/gpio_info.png)
 
->题外话，可能过程中会遇到一些问题，读者需细心检查。我在连接的时候自己坑了自己一把，就是杜邦线有松动导致电源不稳定，常常弄着弄着就断电了。
+>题外话，可能过程中会遇到一些问题，读者需细心检查。我在连接的时候，自己坑了自己一把，就是杜邦线有松动导致电源不稳定，常常弄着弄着就断电了。
 
 连接参考：
 ![调试线连接](./img/uart.jpg)
 
-连接上你的电脑后（*nix系统，window的童鞋可以使用串口连接工具）,执行：
+连接上你的电脑后（*nix系统，window的童鞋可以使用串口连接工具）,首先查看你的树莓派 uart 设备是哪个：
 
 ```bash
-sudo screen /dev/ttyUSB0 115200
+$ ls /dev | grep cu
 ```
 
-这样你就可以用过串口线与 pi 通信了，如需退出，可以按 `ctrl-a`, `ctrl-d`。
+比方说这样：
+
+![](./img/ls_dev.png)
+
+
+```bash
+sudo screen /dev/usbserial-1420 115200
+```
+
+`115200` 是串口波特率，树莓派默认是这个这样你就可以用过串口线与 pi 通信了，如需退出，可以按 `ctrl-a`, `ctrl-d`。
