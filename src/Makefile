@@ -1,0 +1,3 @@
+.PHONY: test
+
+all: clean
