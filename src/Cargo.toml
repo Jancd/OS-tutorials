@@ -1,5 +1,5 @@
 [package]
-name = "kernel8"
+name = "kernel"
 version = "0.1.0"
 authors = ["Sergey Cheung <sergeychang@gmail.com>"]
 edition = "2018"
