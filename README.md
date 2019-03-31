@@ -35,4 +35,4 @@
 
 ## 准备与开发环境
 
-[开发指南](./tutorials/preparation.md)
+[开发指南](tutorials/00_preparation/README.md)
