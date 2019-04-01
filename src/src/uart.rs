@@ -1,5 +1,5 @@
 use super::MMIO_BASE;
-use crate::delays;
+use crate::delay;
 use crate::gpio;
 use crate::mbox;
 use core::{
@@ -168,12 +168,12 @@ impl Uart {
             .modify(gpio::GPFSEL1::FSEL14::TXD0 + gpio::GPFSEL1::FSEL15::RXD0);
 
         gpio.GPPUD.set(0); // enable pins 14 and 15
-        delays::wait_cycles(150);
+        delay::wait_cycles(150);
 
         gpio.GPPUDCLK0.modify(
             gpio::GPPUDCLK0::PUDCLK14::AssertClock + gpio::GPPUDCLK0::PUDCLK15::AssertClock,
         );
-        delays::wait_cycles(150);
+        delay::wait_cycles(150);
 
         gpio.GPPUDCLK0.set(0);
 

@@ -1,5 +1,5 @@
 use super::MMIO_BASE;
-use crate::delays;
+use crate::delay;
 use crate::gpio;
 use crate::mbox;
 use core::ops;
@@ -84,11 +84,11 @@ impl Power {
         gpio.GPFSEL5.set(0);
 
         gpio.GPPUD.set(0);
-        delays::wait_cycles(150);
+        delay::wait_cycles(150);
 
         gpio.GPPUDCLK0.set(0xffff_ffff);
         gpio.GPPUDCLK1.set(0xffff_ffff);
-        delays::wait_cycles(150);
+        delay::wait_cycles(150);
 
         // flush GPIO setup
         gpio.GPPUDCLK0.set(0);

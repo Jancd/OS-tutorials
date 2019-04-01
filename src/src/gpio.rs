@@ -1,4 +1,5 @@
 use core::ops;
+
 use register::{mmio::ReadWrite, register_bitfields};
 
 use super::MMIO_BASE;
@@ -7,7 +8,7 @@ const GPIO_BASE: u32 = MMIO_BASE + 0x200_000;
 
 // 寄存器文档请参考
 // https://github.com/raspberrypi/documentation/files/1888662/BCM2837-ARM-Peripherals.-.Revised.-.V2-1.pdf
-/// TODO
+// TODO
 register_bitfields! {
     u32,
 
@@ -104,16 +105,16 @@ pub struct RegisterBlock {
 pub struct GPIO;
 
 impl ops::Deref for GPIO {
+    type Target = RegisterBlock;
+
     fn deref(&self) -> &Self::Target {
-        unsafe {
-            &*Self::ptr()
-        }
+        unsafe { &*Self::ptr() }
     }
 }
 
 
 impl GPIO {
-    fn New() -> GPIO {
+    pub fn new() -> GPIO {
         GPIO
     }
 
