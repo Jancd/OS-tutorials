@@ -38,6 +38,9 @@
  - 所有教程文档、含注释的代码都合并到了 `master` 分支上，教程文档都在 [tutorials](tutorials/) 目录上。
  - 教程中的所有记录，请切换相应的 git 分支上，读者可以按照自己的学习路线进行阅读。(所以也避免不了拖更QAQ)
 
+###  相关阅读
+  洛佳 (@luojia65)同学主要负责翻译的[《使用Rust编写操作系统》](https://github.com/rustcc/writing-an-os-in-rust)简体中文翻译：https://github.com/rustcc/writing-an-os-in-rust 
+
 ## 准备与开发环境
 
 [开发指南](tutorials/00_preparation/README.md)
